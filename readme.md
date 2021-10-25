@@ -1,10 +1,14 @@
 ### Typescript + ExpressJS + NodeJS app
 
-#### Run the app using
+#### Run the app using npm commands
+> Refer to package.json to understand more about writing npm scripts.
 ``` bash
-# compiles the typescript app in accordance to tsconfig.json
-$ tsc 
+# Starts the server in developer mode that listen to changes in code and restarts automatically.
+npm run dev
 
-# Executes the generate javascript app after typescript compilation.
-$ node build/app.js
+# Starts the server and serves the traffic.
+npm run start
 ```
+
+#### TODO
+* Add React JS dependency 
