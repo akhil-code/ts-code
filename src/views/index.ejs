@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <!-- add icon link -->
+    <link
+      rel="icon"
+      href="https://png.pngtree.com/png-clipart/20180626/ourlarge/pngtree-instagram-icon-instagram-logo-png-image_3584852.png"
+      type="image/x-icon"
+    />
     <title><%= title %></title>
-    <style media="screen">
-      body {
-        padding: 50px;
-        font: 16px Helvetica, Arial;
-      }
-    </style>
   </head>
-  <body>
-    <h2><%= title %></h2>
+  <body style="background-color: #fafafa;">
+    <!-- Include nav bar -->
+    <%- include('partials/navbar.ejs') %>
+
+    <!-- Including dummy post -->
+    <%- include('partials/post.ejs')%>
+
   </body>
 </html>
