@@ -1,6 +1,9 @@
 ### Typescript + ExpressJS + NodeJS app
 
-#### Run the app using npm commands
+#### Application URL
+https://akhil-code-ts-code.herokuapp.com/
+
+#### Run the app locally using npm commands
 > Refer to package.json to understand more about writing npm scripts.
 ``` bash
 # Starts the server in developer mode that listen to changes in code and restarts automatically.
