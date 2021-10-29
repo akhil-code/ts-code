@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      body {
+        background-color: yellow;
+        margin: 0;
+        padding: 0;
+      }
+
+      .profile-photo-container {
+        list-style-type: none;
+        margin: 0;
+        padding: 16px 0px;
+        overflow-x: scroll;
+        border: 1px solid #dbdbdb;
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+      }
+
+      .profile-photo-container li {
+          float: left;
+          padding: 0px 10px;
+      }
+
+      .profile-photo-container li img {
+        border-radius: 50%;
+        height: 56px;
+        width: 56px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+      }
+
+      .profile-photo-container li div {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="statubar-container">
+      <ul class="profile-photo-container">
+        <% for(var i=0; i < avatarUrls.length; i++) { %>
+        <li>
+          <img
+            src="<%- avatarUrls[i]%>"
+          />
+          <div>that.me.akhil</div>
+        </li>
+        <% } %>
+      </ul>
+    </div>
+  </body>
+</html>

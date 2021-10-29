@@ -22,10 +22,11 @@
     "copy-public-folder": "fse copy src/public/ build/public",
     "copy-routes-folder": "fse copy src/routes/ build/routes",
     "copy-views-folder": "fse copy src/views/ build/views",
-    "copy-artifacts": "npm run copy-public-folder && npm run copy-routes-folder && npm run copy-views-folder",
+    "copy-assets-folder": "fse copy src/assets/ build/assets",
+    "copy-artifacts": "npm run copy-public-folder && npm run copy-routes-folder && npm run copy-views-folder && npm run copy-assets-folder",
     "build": "npm run clean && tsc && npm run copy-artifacts",
     "start": "npm run build && node build/app.js",
-    "dev": "nodemon --watch src -e ts,ejs --exec npm run start",
+    "dev": "nodemon --watch src -e ts,ejs,json --exec npm run start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

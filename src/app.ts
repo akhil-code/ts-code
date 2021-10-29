@@ -1,5 +1,6 @@
 import express from "express";
 import path from "path";
+import fs from "fs";
 
 const app = express();
 const port : string|number = process.env.PORT || 5000;
@@ -9,7 +10,18 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
-  res.render("index", { title: "Instagram" });
+  
+  type dataMap = {
+    title : string,
+    avatarUrls ?: string[]
+  }
+  
+  let options : dataMap = {
+    "title": "Instagram"
+  }
+  let out = fs.readFileSync(path.join(__dirname, "assets/profile-avatars.json")).toString();
+  options.avatarUrls = JSON.parse(out).images;
+  res.render("index", options);
 });
 
 app.listen(port, () => {
