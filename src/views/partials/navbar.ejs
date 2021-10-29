@@ -6,31 +6,47 @@
 
     <!-- css styling -->
     <style media="screen">
+
+      body {
+        padding: 0;
+        margin: 0;
+      }
+
       /* Title */
       .title-icon {
-        padding: 10px 20px;
+        padding: 10px 20px 0px 0px;
       }
 
       /* Navbar */
-      .navbar {
-        list-style-type: none;
-        padding: 0;
+      .navbar-container {
+        background-color: white;
         margin: 0;
+        padding: 0;
+        border-bottom: 1px solid #dbdbdb;
+        position: fixed;
+        width: 100%;
+        top: 0;
+      }
+
+      .navbar-content {
+        list-style-type: none;
         overflow: hidden;
         background-color: #ffffff;
         margin-left: auto;
         margin-right: auto;
+        margin-top: 0;
+        margin-bottom: 0;
         width: fit-content;
       }
 
-      .navbar li {
+      .navbar-content li {
         float: left;
       }
 
       /* Search box */
       .search-box {
         box-sizing: border-box;
-        padding: 10px 0;
+        padding: 10px 0px 0px 0px;
         width: 300px;
       }
 
@@ -67,7 +83,7 @@
   </head>
   <body>
     <div class="navbar-container">
-      <ul class="navbar">
+      <ul class="navbar-content">
         <li class="title-icon">
           <img
             src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
