@@ -1,0 +1,94 @@
+@startuml instagramLld
+
+title Instagram LLD
+
+package service {
+    class FeedService {
+        - profileDao: ProfileDao
+        - postDao: PostDao
+        + generateNewsFeed(profileId: string): NewsFeed
+    }
+
+    class FanManager {
+        - profileDao : ProfileDao
+        + getAllFollowers(id: string): List<User::id>
+        + getAllFollowees(id: string): List<User::id>
+        + addFollower(follower: string, followee: string)
+        + removeFollower(follower: string, followee: string)
+    }
+
+    class PostManager {
+        - postDao : PostDao
+        + createNewPost(post: Post)
+        + deletePost(post: Post)
+        + updatePost(post: Post)
+        + getPost(postId: string)
+    }
+}
+
+package model {
+
+    class Feed {
+        feed: list<Post>
+    }
+
+    class Comment {
+        + id: string
+        + authorProfileId: Profile::id
+        + data: string
+        + createDate: date
+    }
+
+    class Post {
+        + id: string
+        + picture: image
+        + caption: string
+        + likesCount: number
+        + likedBy: list<Comment::id>
+        + comments: list<Comment::id>
+        + createDate: date
+    }
+
+    class Profile {
+        + id: string
+        + username: string
+        + fullName: string
+        + birthday: date
+        + bio: string
+        + avatar: image
+        + followers: list<User::id>
+        + followees: list<User::id>
+        + posts: list<Post::id>
+        + createDate: date
+    }
+}
+
+package dao {
+    class ProfileDao {
+        - dataStoreDao : Dao
+        + getProfileById(id: string) : Profile
+        + createProfile(profile: Profile)
+        + updateProfile(profile: Profile)
+        + deleteProfile(profile: Profile) : boolean
+        + getFollowers(Profile::id) : list<User::id>
+        + getFollowees(Profile::id) : list<User::id>
+        + getAllPostIds(Profile::id) : list<Post::id>
+    }
+
+    class PostDao {
+        - dataStoreDao : Dao
+        + getPostById(id:string): Post
+        + createPost(post:Post)
+        + deletePost(post:Post): boolean
+        + updatePost(post:Post)
+    }
+
+    interface Dao {
+        + getRecord(primaryKey: string)
+        + createRecord(record: Object): string
+        + updateRecord(record: Object)
+        + deleteRecord(record: Object): boolean
+    }
+}
+
+@enduml
