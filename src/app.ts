@@ -24,6 +24,12 @@ app.get("/", (req, res) => {
   res.render("index", options);
 });
 
+app.get("/explore", (req, res)=> {
+  res.render("explore", {
+    "title": "Instagram"
+  })
+});
+
 app.listen(port, () => {
   console.log(`application running on port ${port}.`);
 });
