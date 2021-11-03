@@ -24,10 +24,16 @@ app.get("/", (req, res) => {
   res.render("index", options);
 });
 
-app.get("/explore", (req, res)=> {
+app.get("/explore", (req, res) => {
   res.render("explore", {
     "title": "Instagram"
   })
+});
+
+app.get("/profile", (req, res) => {
+  res.render("profile", {
+    "title": "Instagram"
+  });
 });
 
 app.listen(port, () => {
