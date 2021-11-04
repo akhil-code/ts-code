@@ -16,5 +16,8 @@ npm run dev
 npm run start
 ```
 
+#### High Level Design
+![HLD Diagram](https://raw.githubusercontent.com/akhil-code/ts-code/development/docs/hld/hld.jpg?raw=true)
+
 #### TODO
 * Add React JS dependency 
