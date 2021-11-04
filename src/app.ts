@@ -36,6 +36,12 @@ app.get("/profile", (req, res) => {
   });
 });
 
+app.get("/messages", (req, res) => {
+  res.render("messages", {
+    "title": "Instagram"
+  });
+});
+
 app.listen(port, () => {
   console.log(`application running on port ${port}.`);
 });
