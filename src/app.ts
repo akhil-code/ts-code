@@ -42,6 +42,13 @@ app.get("/messages", (req, res) => {
   });
 });
 
+app.get("/create-post", (req, res) => {
+  res.render("newpost", {
+    "title": "Instagram"
+  });
+});
+
+
 app.listen(port, () => {
   console.log(`application running on port ${port}.`);
 });
