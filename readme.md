@@ -17,7 +17,14 @@ npm run start
 ```
 
 #### High Level Design
+> open the image below to have complete view
+
 ![HLD Diagram](https://raw.githubusercontent.com/akhil-code/ts-code/development/docs/hld/hld.jpg?raw=true)
+
+#### Low Level Design
+> open the image below to have complete view
+
+![LLD Diagram](https://raw.githubusercontent.com/akhil-code/ts-code/development/docs/lld/lld.jpg?raw=true)
 
 #### TODO
 * Add React JS dependency 

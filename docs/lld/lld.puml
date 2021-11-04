@@ -1,0 +1,134 @@
+@startuml instagramLld
+
+title Instagram LLD
+
+package service {
+
+    class ProfileService {
+        -profileDao: ProfileDao
+        + login()
+        + signup()
+        + updateProfile()
+        + deleteProfile()
+    }
+
+    class ImageService {
+        -imageStore: ImageFileStore
+        -imageMetdataStore: ImageMetaDataStore
+        +putImage() : imageURL : URL
+        +getImage(imageURL : URL) : image : Image
+
+    }
+
+    class PostManagerService {
+        - postDao : PostDao
+        - imageService: ImageService
+        + createNewPost(post: Post)
+        + deletePost(post: Post)
+        + updatePost(post: Post)
+        + getPost(postId: string)
+    }
+
+    ImageService <-- PostManagerService
+
+    class FanManagerService {
+        + getAllFollowers(id: string): List<User::id>
+        + getAllFollowees(id: string): List<User::id>
+        + addFollower(follower: string, followee: string)
+        + removeFollower(follower: string, followee: string)
+    }
+
+    class FeedGeneratorService {
+        - fanManagerService: FanManagerService
+        - postManagerService : PostManagerService
+        + generateFeed(profileId: string): Feed
+    }
+
+    FanManagerService <-- FeedGeneratorService
+    PostManagerService <-- FeedGeneratorService
+    
+}
+
+package model {
+
+    class Profile {
+        + username: string
+        + password: password
+        + fullName: string
+        + birthday: date
+        + bio: string
+        + avatar: image
+        + totalFollowers : number
+        + totalFollowing : number
+        + creationDate: date
+    }
+
+    class ImageMetadata {
+        + id: string
+        + imageURL: URL
+    }
+
+    class PostMetadata {
+        + id: string
+        + title: string
+        + caption: string
+        + location: string
+        + images: list<ImageMetadata::id>
+        + likesCount: number
+        + likedBy: list<Profile::id>
+        + creationDate: Date
+    }
+
+    class FanbaseMetadata {
+        + targetProfile: Profile::id
+        + followers: list<Profile::id>
+        + following: list<Profile::id>
+    }
+
+    class Feed {
+        + targetProfile: Profile::id
+        + feed: list<PostMetadata::id>
+    }
+    
+}
+
+package dao {
+    class ProfileDao {
+        + getProfileById(id: string) : Profile
+        + createProfile(profile: Profile)
+        + updateProfile(profile: Profile)
+        + deleteProfile(profile: Profile) : boolean
+    }
+
+    class ImageDao {
+        + putImage()
+        + getImage()
+    }
+
+    class PostDao {
+        + getAllPostOfProfile(Profile::id) : list<Post::id>
+        + getPostById(id:string): Post
+        + createPost(post:Post)
+        + deletePost(post:Post): boolean
+        + updatePost(post:Post)
+    }
+
+    class FanbaseDao {
+        + getFollowers(Profile::id) : list<User::id>
+        + getFollowees(Profile::id) : list<User::id>
+    }
+
+    interface Dao {
+        + getRecord(primaryKey: string)
+        + createRecord(record: Object): string
+        + updateRecord(record: Object)
+        + deleteRecord(record: Object): boolean
+    }
+
+    ProfileDao <|.. Dao
+    ImageDao <|.. Dao
+    PostDao <|.. Dao
+    FanbaseDao <|.. Dao
+}
+
+@enduml
