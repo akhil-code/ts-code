@@ -43,7 +43,7 @@ app.get("/messages", (req, res) => {
 });
 
 app.get("/create-post", (req, res) => {
-  res.render("newpost", {
+  res.render("createpost", {
     "title": "Instagram"
   });
 });

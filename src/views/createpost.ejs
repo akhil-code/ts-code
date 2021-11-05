@@ -11,15 +11,54 @@
     />
     <title><%= title %></title>
     <style>
-        .new-post-container {
-          padding-top: 90px;
-          padding-bottom: 20px;
-        }
-        .new-post-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+      .new-post-container {
+        padding-top: 90px;
+        padding-bottom: 20px;
+        width: max-content;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .new-post-header {
+        text-align: center;
+        font-weight: bold;
+        width: 70vh;
+        border: 1px solid #dadada;
+        background-color: white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        padding: 10px 0px;
+        border-bottom: none;
+      }
+
+      .new-post-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        height: 75vh;
+        width: 70vh;
+        border: 1px solid #dadada;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+
+      
+
+      .drag-photos-and-videos-section {
+        margin-top: 16px;
+      }
+
+      .select-from-computer-button {
+        font-size: 14px;
+        background-color: rgb(0, 149, 246);
+        color: white;
+        border-radius: 4px;
+        border: none;
+        padding: 6px 10px;
+        margin-top: 24px;
+      }
     </style>
   </head>
   <body style="background-color: #fafafa">
@@ -52,8 +91,12 @@
             fill="currentColor"
           ></path>
         </svg>
-        <div>Drag photos and videos here</div>
-        <button>Select from computer</button>
+        <div class="drag-photos-and-videos-section">
+          Drag photos and videos here
+        </div>
+        <button class="select-from-computer-button">
+          Select from computer
+        </button>
       </div>
     </div>
   </body>
